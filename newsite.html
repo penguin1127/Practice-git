@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뉴스 페이지</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .header {
+        text-align: left;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+      }
+      .nav-container {
+        background-color: #333;
+      }
+      .nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+      }
+      .nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .nav a:hover {
+        background-color: #555;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .main-content {
+        flex: 3;
+        text-align: center;
+      }
+      .main-content a {
+        text-decoration: none;
+        color: purple;
+      }
+      .main-content a img {
+        width: 100%;
+        height: auto;
+      }
+      .sidebar {
+        flex: 1;
+        border-left: 1px solid #ddd;
+        padding-left: 20px;
+      }
+      .sidebar h3 {
+        margin-top: 0;
+      }
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .sidebar ul li {
+        margin-bottom: 10px;
+      }
+      .sidebar ul li a {
+        text-decoration: none;
+        color: blue;
+      }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-top: 1px solid #ddd;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="header">
+        <h1>K-Sports-Hub</h1>
+      </div>
+      <div class="nav-container">
+        <div class="nav">
+          <a href="#">축구</a>
+          <a href="#">야구</a>
+          <a href="#">일반</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="main-content">
+        <a href="#"><img src="image.png" alt="선수관련 주요뉴스" /><br />Main News</a>
+      </div>
+      <div class="sidebar">
+        <h3>뉴스 Top 10</h3>
+        <ul>
+          <li><a href="#">뉴스 제목 1</a></li>
+          <li><a href="#">뉴스 제목 2</a></li>
+          <li><a href="#">뉴스 제목 3</a></li>
+          <li><a href="#">뉴스 제목 4</a></li>
+          <li><a href="#">뉴스 제목 5</a></li>
+          <li><a href="#">뉴스 제목 6</a></li>
+          <li><a href="#">뉴스 제목 7</a></li>
+          <li><a href="#">뉴스 제목 8</a></li>
+          <li><a href="#">뉴스 제목 9</a></li>
+          <li><a href="#">뉴스 제목 10</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">&copy; 2025 Exitio</div>
+  </body>
+</html>
