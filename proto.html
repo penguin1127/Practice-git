@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED FLAME</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #800080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: black;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .main-content, .sidebar {
+            padding: 10px;
+        }
+        .main-content {
+            flex: 3;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RED FLAME</h1>
+    </div>
+    <div class="nav">
+        <a href="#">자유게시판</a>
+        <a href="#">매치리포트</a>
+        <a href="#">주요뉴스</a>
+        <a href="#">영상</a>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <div class="card">
+                <h2>매치리포트</h2>
+                <p>[2020 K리그 2R] 대전하나시티즌 3 : 0 FC안양</p>
+            </div>
+            <div class="card">
+                <h2>게시판</h2>
+                <ul>
+                    <li>[단독] 성남 미드필더 임선영, FC안양 임대 떠난다</li>
+                    <li>마우리데스 근황</li>
+                    <li>FC안양 선수 착복 유니폼</li>
+                    <li>일본선수 타쿠야 라리가 안타레스 행각</li>
+                    <li>현재까지 선수단 예상</li>
+                    <li>코스타리카 국대 공격수 휴고...유럽 진출한 안양 '스피드 축구'</li>
+                    <li>조나탄 보아텡 안양행에 스코틀리가 관심보인 반응</li>
+                    <li>김정겸 영입 임박</li>
+                    <li>2021 동계이적루머 총정리</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="card">
+                <h2>K리그2 정규라운드 순위</h2>
+                <ol>
+                    <li>제주</li>
+                    <li>수원FC</li>
+                    <li>경남</li>
+                    <li>대전</li>
+                    <li>서울E</li>
+                    <li>부천</li>
+                    <li>안산</li>
+                    <li>부산</li>
+                    <li>안양</li>
+                    <li>충남아산</li>
+                </ol>
+            </div>
+            <div class="card">
+                <h2>최근 댓글</h2>
+                <p>임선영 ㄷㄷ 이번 시즌 기대됩니다</p>
+                <p>아... 망 걸거같은 느낌이...</p>
+                <p>반더하울 잘해줬으면 좋겠음</p>
+                <p>와우 ㅋㅋㅋㅋㅋ</p>
+                <p>삭제된 댓글입니다.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2025 RED FLAME. All rights reserved.</p>
+    </div>
+</body>
+</html>
