@@ -14,21 +14,24 @@
         .header {
             background-color: #1e3a8a;
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
         }
         .nav {
             display: flex;
-            justify-content: center;
-            background-color: #f1f1f1;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+            gap: 20px;
         }
         .nav a {
-            margin: 0 15px;
             text-decoration: none;
-            color: #333;
+            color: white;
             font-weight: bold;
+            font-size: 1em;
         }
         .main-banner {
             background-image: url('banner.jpg'); /* 배너 이미지 */
@@ -80,51 +83,38 @@
             padding: 10px;
             margin-top: 20px;
         }
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        .grid-section .card {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Sports-Hub</h1>
-    </div>
-    <div class="nav">
-        <a href="#">공지사항</a>
-        <a href="#">게시판</a>
-        <a href="#">팀 정보</a>
-        <a href="#">용품 거래</a>
+        <div class="logo">Sports-Hub</div>
+        <div class="nav">
+            <a href="#">공지사항</a>
+            <a href="#">게시판</a>
+            <a href="#">팀 정보</a>
+            <a href="#">용품 거래</a>
+        </div>
     </div>
     <div class="main-banner">
         조기축구 팀과 선수를 연결하는 최고의 플랫폼
     </div>
     <div class="container">
         <div class="main-content">
-            <div class="grid-section">
-                <div class="card">
-                    <h2>자유게시판</h2>
-                    <ul class="post-list">
-                        <li><a href="#">이번 주말 경기 모집합니다!</a> - 2일 전, 댓글 10</li>
-                        <li><a href="#">풋살화 추천 부탁드립니다.</a> - 5일 전, 댓글 8</li>
-                        <li><a href="#">우리 팀의 전술을 공유합니다.</a> - 7일 전, 댓글 15</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h2>용품 거래</h2>
-                    <ul class="post-list">
-                        <li><a href="#">미즈노 축구화 판매합니다.</a> - 1일 전, 조회 120</li>
-                        <li><a href="#">풋살 공 구매 원합니다.</a> - 3일 전, 조회 85</li>
-                        <li><a href="#">GK 장갑 교환 희망합니다.</a> - 6일 전, 조회 95</li>
-                    </ul>
-                </div>
+            <div class="card">
+                <h2>자유게시판</h2>
+                <ul class="post-list">
+                    <li><a href="#">이번 주말 경기 모집합니다!</a> - 2일 전, 댓글 10</li>
+                    <li><a href="#">풋살화 추천 부탁드립니다.</a> - 5일 전, 댓글 8</li>
+                    <li><a href="#">우리 팀의 전술을 공유합니다.</a> - 7일 전, 댓글 15</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>용품 거래</h2>
+                <ul class="post-list">
+                    <li><a href="#">미즈노 축구화 판매합니다.</a> - 1일 전, 조회 120</li>
+                    <li><a href="#">풋살 공 구매 원합니다.</a> - 3일 전, 조회 85</li>
+                    <li><a href="#">GK 장갑 교환 희망합니다.</a> - 6일 전, 조회 95</li>
+                </ul>
             </div>
         </div>
         <div class="sidebar">
