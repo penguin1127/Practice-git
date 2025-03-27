@@ -22,12 +22,24 @@
         .header .logo {
             font-size: 1.5em;
             font-weight: bold;
+            margin-right: 20px;
         }
         .nav {
             display: flex;
             gap: 20px;
+            flex-grow: 1;
         }
         .nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .auth {
+            display: flex;
+            gap: 15px;
+        }
+        .auth a {
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -93,6 +105,10 @@
             <a href="#">게시판</a>
             <a href="#">팀 정보</a>
             <a href="#">용품 거래</a>
+        </div>
+        <div class="auth">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
         </div>
     </div>
     <div class="main-banner">
