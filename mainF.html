@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports-Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .main-banner {
+            background-image: url('banner.jpg'); /* 배너 이미지 */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        .main-content, .sidebar {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .main-content .card, .sidebar .card {
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 5px;
+        }
+        .post-list li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        .post-list li a {
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+        .post-list li a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .grid-section .card {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sports-Hub</h1>
+    </div>
+    <div class="nav">
+        <a href="#">공지사항</a>
+        <a href="#">게시판</a>
+        <a href="#">팀 정보</a>
+        <a href="#">용품 거래</a>
+    </div>
+    <div class="main-banner">
+        조기축구 팀과 선수를 연결하는 최고의 플랫폼
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <div class="grid-section">
+                <div class="card">
+                    <h2>자유게시판</h2>
+                    <ul class="post-list">
+                        <li><a href="#">이번 주말 경기 모집합니다!</a> - 2일 전, 댓글 10</li>
+                        <li><a href="#">풋살화 추천 부탁드립니다.</a> - 5일 전, 댓글 8</li>
+                        <li><a href="#">우리 팀의 전술을 공유합니다.</a> - 7일 전, 댓글 15</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>용품 거래</h2>
+                    <ul class="post-list">
+                        <li><a href="#">미즈노 축구화 판매합니다.</a> - 1일 전, 조회 120</li>
+                        <li><a href="#">풋살 공 구매 원합니다.</a> - 3일 전, 조회 85</li>
+                        <li><a href="#">GK 장갑 교환 희망합니다.</a> - 6일 전, 조회 95</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="card">
+                <h2>인기 게시물</h2>
+                <ul class="post-list">
+                    <li><a href="#">우리 팀의 전술을 공유합니다.</a> - 조회 300</li>
+                    <li><a href="#">풋살화 추천 부탁드립니다.</a> - 조회 250</li>
+                    <li><a href="#">이번 주말 경기 모집합니다!</a> - 조회 200</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>최근 댓글</h2>
+                <ul class="post-list">
+                    <li>풋살화 추천 감사합니다!</li>
+                    <li>이번 주말 경기 기대됩니다!</li>
+                    <li>GK 장갑 교환 희망합니다.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2025 Sports-Hub. All rights reserved.</p>
+    </div>
+</body>
+</html>
