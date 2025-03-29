@@ -14,8 +14,12 @@ const Header = () => {
         <Link to="/my-page" className="hover:text-yellow-400">마이페이지</Link>
       </nav>
       <div className="flex space-x-4">
-        <Link to="/login" className="text-sm hover:text-yellow-400">로그인</Link>
-        <Link to="/sign-up" className="bg-yellow-400 text-gray-800 px-4 py-2 rounded hover:bg-yellow-500">회원가입</Link>
+        <Link to="/login" className="bg-yellow-400 text-gray-800 px-4 py-2 rounded hover:bg-yellow-500">
+          로그인
+        </Link>
+        <Link to="/sign-up" className="bg-yellow-400 text-gray-800 px-4 py-2 rounded hover:bg-yellow-500">
+          회원가입
+        </Link>
       </div>
     </header>
   );
