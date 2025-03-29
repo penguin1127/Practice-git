@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../context/DataContext';
 
 const Login = () => {
-  const { setIsLoggedIn } = useContext(DataContext);
+  const { login } = useContext(DataContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -11,9 +11,9 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // 간단한 로그인 로직 (실제 구현 시 서버와 통신 필요)
-    if (email === 'test@example.com' && password === 'password') {
-      setIsLoggedIn(true); // 로그인 상태 업데이트
+    // 로그인 시도
+    if (login(email, password)) {
+      alert('로그인 성공!');
       navigate('/my-page'); // 마이페이지로 이동
     } else {
       alert('로그인 정보가 올바르지 않습니다.');

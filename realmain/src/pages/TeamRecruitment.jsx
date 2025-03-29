@@ -1,18 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
 
 const TeamRecruitment = () => {
-  const { teamRecruitmentPosts, setTeamRecruitmentPosts } = useContext(DataContext);
-  const [newPost, setNewPost] = useState({ title: '', details: '' });
+  const { teamRecruitmentPosts, addTeamRecruitmentPost, isLoggedIn } = useContext(DataContext);
 
   const handleAddPost = () => {
-    const newId = teamRecruitmentPosts.length + 1;
-    setTeamRecruitmentPosts([...teamRecruitmentPosts, { id: newId, ...newPost }]);
-    setNewPost({ title: '', details: '' });
+    const newPost = {
+      id: teamRecruitmentPosts.length + 1,
+      title: '새로운 팀 모집 공고',
+      details: '세부 정보를 입력하세요.',
+    };
+    addTeamRecruitmentPost(newPost);
   };
 
   return (
-    <div className="bg-white shadow-md rounded p-6">
+    <div className="bg-white shadow-md rounded p-6 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">팀 모집 공고</h1>
       <ul className="space-y-4">
         {teamRecruitmentPosts.map((post) => (
@@ -22,28 +24,14 @@ const TeamRecruitment = () => {
           </li>
         ))}
       </ul>
-      <div className="mt-6">
-        <input
-          type="text"
-          placeholder="제목"
-          value={newPost.title}
-          onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-          className="border p-2 rounded w-full mb-2"
-        />
-        <input
-          type="text"
-          placeholder="세부 정보"
-          value={newPost.details}
-          onChange={(e) => setNewPost({ ...newPost, details: e.target.value })}
-          className="border p-2 rounded w-full mb-2"
-        />
+      {isLoggedIn && ( // 로그인 상태에서만 "작성하기" 버튼 표시
         <button
           onClick={handleAddPost}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="mt-6 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
         >
-          추가하기
+          작성하기
         </button>
-      </div>
+      )}
     </div>
   );
 };
