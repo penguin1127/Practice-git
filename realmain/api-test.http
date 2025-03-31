@@ -1,0 +1,31 @@
+# GET 요청: 회원 목록 가져오기
+GET http://localhost:8080/api/user
+
+###
+
+#POST http://localhost:8080/api/users
+#Content-Type: application/json
+#
+#{
+#  "name": "John Doe",
+#  "email": "john.doe@example.com",
+#  "password": "password123",
+#  "profileImage": "profile.jpg"
+#}
+
+# POST 요청: 새 회원 추가
+GET http://localhost:8080/api/user/1
+
+#POST http://localhost:8080/api/user
+#Content-Type: application/json
+#Body:
+#{
+#    "name": "John Doe",
+#    "email": "john.doe@example.com",
+#    "password": "password123",
+#    "profileImage": "profile.jpg"
+#}
+#
+
+###
+DELETE http://localhost:8080/api/user/1
