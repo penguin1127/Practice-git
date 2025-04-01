@@ -1,20 +1,24 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
 
-function Layout({ children }) {
+const Layout = ({ isLoggedIn, userEmail, handleLogout }) => {
+  console.log('Layout 렌더링');
+  console.log('isLoggedIn:', isLoggedIn);
+  console.log('userEmail:', userEmail);
+
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* 헤더 */}
-      <Header />
-
-      {/* 페이지 내용 */}
-      <main className="flex-grow">{children}</main>
-
-      {/* 푸터 */}
-      <Footer />
-    </div>
+    <>
+      <Header
+        isLoggedIn={isLoggedIn}
+        userEmail={userEmail}
+        handleLogout={handleLogout}
+      />
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
-}
+};
 
 export default Layout;

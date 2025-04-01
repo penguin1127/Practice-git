@@ -1,95 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
+import RegionModal from '../common/RegionModal';
 
-function TeamFilter({
+const TeamFilter = ({
   selectedRegion,
+  selectedFilter,
+  searchKeyword,
   onRegionChange,
-  searchQuery,
+  onFilterChange,
   onSearchChange,
-  selectedStatus,
-  onStatusChange,
   onReset,
-}) {
-  console.log('onSearchChange:', onSearchChange); // 디버깅용 로그
-  console.log('onRegionChange:', onRegionChange); // 디버깅용 로그
-  console.log('onStatusChange:', onStatusChange); // 디버깅용 로그
-  console.log('onReset:', onReset); // 디버깅용 로그
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const regions = [
+    '전체 지역',
+    '서울',
+    '부산',
+    '대구',
+    '인천',
+    '광주',
+    '대전',
+    '울산',
+    '세종',
+    '경기',
+    '강원',
+    '충북',
+    '충남',
+    '전북',
+    '전남',
+    '경북',
+    '경남',
+    '제주',
+  ];
+
+  const filters = ['전체 상태', '마감 임박', '모집 중'];
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="mb-4 flex items-center space-x-4">
       {/* 검색창 */}
       <input
         type="text"
+        value={searchKeyword}
+        onChange={(e) => onSearchChange(e.target.value)}
         placeholder="팀 이름 검색"
-        value={searchQuery}
-        onChange={(e) => {
-          console.log('Search input changed:', e.target.value); // 디버깅용 로그
-          if (typeof onSearchChange === 'function') {
-            onSearchChange(e.target.value); // onSearchChange 연결
-          } else {
-            console.error('onSearchChange is not a function');
-          }
-        }}
-        className="p-2 border rounded-md flex-grow"
+        className="border p-2 rounded w-1/3" // 검색창 크기를 줄임
       />
 
-      {/* 지역 필터 */}
-      <select
-        value={selectedRegion}
-        onChange={(e) => {
-          console.log('Region selected:', e.target.value); // 디버깅용 로그
-          if (typeof onRegionChange === 'function') {
-            onRegionChange(e.target.value);
-          } else {
-            console.error('onRegionChange is not a function');
-          }
-        }}
-        className="p-2 border rounded-md"
+      {/* 지역 필터 버튼 */}
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="border p-2 rounded bg-gray-200 hover:bg-gray-300"
       >
-        <option value="전체">전체</option>
-        <option value="서울">서울</option>
-        <option value="부산">부산</option>
-        <option value="대구">대구</option>
-        <option value="인천">인천</option>
-        <option value="광주">광주</option>
-        <option value="대전">대전</option>
-        <option value="울산">울산</option>
-      </select>
+        {selectedRegion}
+      </button>
 
       {/* 상태 필터 */}
       <select
-        value={selectedStatus}
-        onChange={(e) => {
-          console.log('Status selected:', e.target.value); // 디버깅용 로그
-          if (typeof onStatusChange === 'function') {
-            onStatusChange(e.target.value);
-          } else {
-            console.error('onStatusChange is not a function');
-          }
-        }}
-        className="p-2 border rounded-md"
+        value={selectedFilter}
+        onChange={(e) => onFilterChange(e.target.value)}
+        className="border p-2 rounded"
       >
-        <option value="">전체 상태</option>
-        <option value="신청 가능">신청 가능</option>
-        <option value="마감 임박">마감 임박</option>
-        <option value="마감">마감</option>
+        {filters.map((filter) => (
+          <option key={filter} value={filter}>
+            {filter}
+          </option>
+        ))}
       </select>
 
-      {/* 필터 초기화 버튼 */}
+      {/* 초기화 버튼 */}
       <button
-        onClick={() => {
-          console.log('Reset button clicked'); // 디버깅용 로그
-          if (typeof onReset === 'function') {
-            onReset();
-          } else {
-            console.error('onReset is not a function');
-          }
-        }}
-        className="p-2 bg-red-500 hover:bg-gray-300 text-white rounded-md"
+        onClick={onReset}
+        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
       >
         초기화
       </button>
+
+      {/* 지역 선택 모달 */}
+      <RegionModal
+        isOpen={isModalOpen}
+        regions={regions}
+        onSelect={(region) => {
+          onRegionChange(region);
+          setIsModalOpen(false);
+        }}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
-}
+};
 
 export default TeamFilter;
