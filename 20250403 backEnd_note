@@ -1,0 +1,35 @@
+제목: 스프링부트에 MySql 연동과 포트 충돌 처리 방법
+
+1.Mysql 연동
+
+*스프링부트 이니셜라이즈에서 Mysql 드라이버 설치*
+
+#bulid.gradle에서 아래의 내용 추가
+
+dependencies
+{
+  implementation 'mysql:mysql-connector-java:8.0.33'
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}
+
+#application properties로 이동하여 아래의 내용 추가
+# DB 연결 정보
+#여기서 Mydb = 데이터베이스 이름, 
+spring.datasource.url=jdbc:mysql://localhost:3306/Mydb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8 
+spring.datasource.username=root
+spring.datasource.password=1234
+
+# JPA 설정
+#ddl-auto=update -> 테이블 자동 생성 업데이트
+spring.jpa.hibernate.ddl-auto=update
+#show-sql=true -> 콘솔에 실행되는 sql 출력
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+2. 포트 충돌 처리
+
+2-1 포트 사용중인 프로세스 확인
+    netstat -ano | findstr :8080
+2-2 포트 점유 중인 프로세스 종료
+    taskkill /PID [PID번호] /F 
+PID 번호 예) 4136
