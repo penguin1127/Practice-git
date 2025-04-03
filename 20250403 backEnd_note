@@ -30,6 +30,6 @@ spring.jpa.properties.hibernate.format_sql=true
 
 2-1 포트 사용중인 프로세스 확인
     netstat -ano | findstr :8080
-2-2 포트 점유 중인 프로세스 종료
+2-2 포트 점유 중인 프로세스 종료(사용중인 포트 죽이기)
     taskkill /PID [PID번호] /F 
 PID 번호 예) 4136
