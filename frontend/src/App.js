@@ -8,6 +8,7 @@ import PersonalAdPage from './pages/PersonalAdPage';
 import MatchRecruitmentPage from './pages/MatchRecruitmentPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import MyPage from './pages/MyPage';
 
 function App() {
   // 테스트 계정으로 로그인된 상태 유지
@@ -45,6 +46,7 @@ function App() {
           <Route path="match-recruitment" element={<MatchRecruitmentPage />} />
           <Route path="login" element={<Login handleLogin={handleLogin} />} />
           <Route path="register" element={<Register />} />
+          <Route path="mypage" element={<MyPage />} /> {/* MyPage 경로 추가 */}
         </Route>
       </Routes>
     </Router>

@@ -1,47 +1,24 @@
-import React, { useState } from 'react';
-import Slider from '../common/Slider'; // 슬라이더 컴포넌트
-import MercenaryCard from './MercenaryCard'; // 용병 카드 컴포넌트
-import MercenaryFilter from './MercenaryFilter'; // 필터 컴포넌트
+import React from "react";
 
-const MercenaryList = ({ mercenaries }) => {
-  const [selectedPosition, setSelectedPosition] = useState("전체");
-  const [selectedRegion, setSelectedRegion] = useState("전체");
-
-  const handleResetFilters = () => {
-    setSelectedPosition("전체");
-    setSelectedRegion("전체");
-  };
-
-  // 필터링된 용병 목록
-  const filteredMercenaries = mercenaries.filter((mercenary) => {
-    const positionMatch =
-      selectedPosition === "전체" || mercenary.position === selectedPosition;
-    const regionMatch =
-      selectedRegion === "전체" || mercenary.location.includes(selectedRegion);
-
-    return positionMatch && regionMatch;
-  });
-
+function MercenaryList({ mercenaries }) {
   return (
-    <div>
-      {/* 필터 섹션 */}
-      <MercenaryFilter
-        selectedPosition={selectedPosition}
-        selectedRegion={selectedRegion}
-        onPositionChange={setSelectedPosition}
-        onRegionChange={setSelectedRegion}
-        onReset={handleResetFilters}
-      />
-      {/* 슬라이더 섹션 */}
-      <Slider
-        items={filteredMercenaries}
-        itemsPerPage={3}
-        renderItem={(mercenary) => (
-          <MercenaryCard key={mercenary.id} mercenary={mercenary} />
-        )}
-      />
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {mercenaries.map((mercenary) => (
+        <div
+          key={mercenary.id}
+          className="border rounded-lg p-4 shadow hover:shadow-lg transition"
+        >
+          <h4 className="text-lg font-bold mb-2">{mercenary.name}</h4>
+          <p className="text-sm text-gray-600 mb-1">포지션: {mercenary.position}</p>
+          <p className="text-sm text-gray-600 mb-2">지역: {mercenary.location || "정보 없음"}</p>
+          <p className="text-sm text-gray-600 mb-2">경험: {mercenary.experience}년</p>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            상세보기
+          </button>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default MercenaryList;
