@@ -1,0 +1,83 @@
+이 구조 이해하기
+
+📁 entity/ -> 데이터베이스 테이블과 매핑됨, 보통 이름, 이메일, 비밀번호 같은 멤버 정보를 필드로 포함함.
+    └── Member.java
+예시)
+
+@Entity
+public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String email;
+    private String password;
+
+    // getter, setter, constructor 등
+}
+
+📁 repository/ -> 데이터베이스와의 CRUD 작업을 처리하는 DAO(데이터 접근 객체) 역할, JpaRepository<Member, Long> 상속받음 -> DB 작업 자동화.( 
+    └── MemberRepository.java
+예시) 
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    Optional<Member> findByEmail(String email);
+}
+
+📁 service/ -> 비즈니스 로직을 수행하는 계층, MemberRepository를 호출하여 데이터 처리, 컨트롤러와 리포지토리 사이 중간 매게 역할.
+    └── MemberService.java
+예시)
+
+@Service
+public class MemberService {
+
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    public Member saveMember(Member member) {
+        return memberRepository.save(member);
+    }
+
+    public Optional<Member> findByEmail(String email) {
+        return memberRepository.findByEmail(email);
+    }
+
+    // 기타 로직 추가 가능 (비밀번호 암호화, 중복 체크 등)
+}
+
+📁 controller/ -> HTTP 요청,응답하는 웹 계층, 사용자 요청을 받음.
+    └── MemberController.java
+예시)
+
+@RestController
+@RequestMapping("/members")
+public class MemberController {
+
+    private final MemberService memberService;
+
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
+    @PostMapping
+    public ResponseEntity<Member> createMember(@RequestBody Member member) {
+        Member saved = memberService.saveMember(member);
+        return ResponseEntity.ok(saved);
+    }
+
+    @GetMapping("/{email}")
+    public ResponseEntity<Member> getMember(@PathVariable String email) {
+        return memberService.findByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+}
+
+
+
+
+  
